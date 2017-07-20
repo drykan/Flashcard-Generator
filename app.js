@@ -3,8 +3,9 @@ var inquirer = require("inquirer");
 var BasicCard = require("./BasicCard");
 var ClozeCard = require("./ClozeCard");
 
-
+// main function to display the cards
 function showCards() {
+	//ask which card to show
     inquirer.prompt([
         {
             type: "list",
@@ -16,7 +17,7 @@ function showCards() {
     ]).then(function (data) {
 
         var mainOptions = data.mainOptions;
-
+        // if choose basic do this
         if (mainOptions === "Study Basic Cards") {
         	
         	var q1 = new BasicCard("Who was the first president of the United States?", "George Washington");
@@ -36,6 +37,7 @@ function showCards() {
 					console.log("Sorry you're wrong. The correct answer is: " + q1.back);
 				}
 			});
+		// if choose Cloze do this
         } else {
         	
         	var cq1 = new ClozeCard("George Washington was the first president of the United States.", "George Washington");
